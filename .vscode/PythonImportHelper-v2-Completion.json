@@ -1,0 +1,37 @@
+[
+    {
+        "label": "RSA",
+        "importPath": "Crypto.PublicKey",
+        "description": "Crypto.PublicKey",
+        "isExtraImport": true,
+        "detail": "Crypto.PublicKey",
+        "documentation": {}
+    },
+    {
+        "label": "key",
+        "kind": 5,
+        "importPath": "generatePrivate_Public_KEY",
+        "description": "generatePrivate_Public_KEY",
+        "peekOfCode": "key = RSA.generate(2048)\nprivateKey = key.export_key()\npublicKey = key.publickey().export_key()\n#\nwith open('private.pem', 'wb') as f:\n    f.write(privateKey)\nwith open('public.pem', 'wb') as f:\n    f.write(publicKey)\nprint('Private key saved to private.pem')\nprint('Private key saved to public.pem')",
+        "detail": "generatePrivate_Public_KEY",
+        "documentation": {}
+    },
+    {
+        "label": "privateKey",
+        "kind": 5,
+        "importPath": "generatePrivate_Public_KEY",
+        "description": "generatePrivate_Public_KEY",
+        "peekOfCode": "privateKey = key.export_key()\npublicKey = key.publickey().export_key()\n#\nwith open('private.pem', 'wb') as f:\n    f.write(privateKey)\nwith open('public.pem', 'wb') as f:\n    f.write(publicKey)\nprint('Private key saved to private.pem')\nprint('Private key saved to public.pem')\nprint('Done')",
+        "detail": "generatePrivate_Public_KEY",
+        "documentation": {}
+    },
+    {
+        "label": "publicKey",
+        "kind": 5,
+        "importPath": "generatePrivate_Public_KEY",
+        "description": "generatePrivate_Public_KEY",
+        "peekOfCode": "publicKey = key.publickey().export_key()\n#\nwith open('private.pem', 'wb') as f:\n    f.write(privateKey)\nwith open('public.pem', 'wb') as f:\n    f.write(publicKey)\nprint('Private key saved to private.pem')\nprint('Private key saved to public.pem')\nprint('Done')",
+        "detail": "generatePrivate_Public_KEY",
+        "documentation": {}
+    }
+]
