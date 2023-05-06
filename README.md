@@ -19,11 +19,17 @@ se a invasão resultar em prejuízo econômico. Antes, a pena aplicável era de 
 
 
 # Dependencias necessárias 
+
 pip install pynput
+
 pip install nuitka
+
 pip install win32gui
+
 pip install smtplib
+
 pip install requests
+
 pip install socket
 
 
