@@ -13,30 +13,30 @@ def scanRecurse(baseDir):
                 yield from scanRecurse(entry.path)
 
 def decrypt(dataFile, privateKeyFile):
-        #read private key fom file
+        # Ler o arquivo da chave privada
         extension = dataFile.suffix.lower()
         with open(privateKeyFile, 'rb') as f:
             privateKey = f.read()
-        # create private key object
+        # Criar objeto da chave privada
         key = RSA.import_key(privateKey)
 
-       #read data from file
+       # Ler dados do arquivo 
 with open (dataFile, 'rb') as f:
-        # read the session key
+        # Ler chave da sessão 
         encryptedSessionKey, nonce, tag, ciphertext = [ f.read(x) for x in(key.size_in_bytes(), 16, 16, -1)]
 
-        # decrypt the session key
+        # Descriptografar chave da sessão 
         cipher = PKCS1_OAEP.new(key)
         sessionKey = cipher.decrypt(encryptedSessionKey)
 
-        #decrypt the data with de session key
+        # Descriptografar os dados com a chave de sessão
         cipher = AES.new(sessionKey, AES.MODE_EAX, nonce)
         data = cipher.decrypt_and_verify(ciphertext, tag)
 
-        # save the decrypeted data to file
+        # Salve os dados descriptografados em arquivo
         dataFile = str(dataFile)
         fileName = dataFile.split(extension)[0]
-        fileExtension = '.decrypted' #mark file as decrypted
+        fileExtension = '.decrypted' # Marcar arquivo como descriptografado
         decryptFile = fileName + FileExtension
 
         with open(decryptFile, 'wb') as f:
@@ -44,17 +44,17 @@ with open (dataFile, 'rb') as f:
 
         print('Decrypted file saved to ' + decryptFile)
 
-directory = './' #change this
+directory = './' # Caminho 
 
 dir = input ('put your directory (default is "./"):')
 if dir:
             directory = dir
 
-includeExtension = ['.y0urd00m3d']#all lower case characters
+includeExtension = ['.y0urd00m3d']# Todos os caracteres minúsculos
 
 for item in scanRecurse(directory):
     filePath = Path(item)
     fileType = filePath.suffix.lower()
-# run the decrytor just the extension is the on that I mention
+# Execute o descriptor apenas a extensão
     if fileType in includeExtension:
         decrypt(filePath, privateKeyFile)
