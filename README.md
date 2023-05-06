@@ -18,7 +18,8 @@ informático passará a ser punido com reclusão, de um a quatro anos, e multa, 
 se a invasão resultar em prejuízo econômico. Antes, a pena aplicável era de detenção de três meses a um ano e multa.
 
 
-# Dependencias necessárias 
+# Dependências necessárias 
+🔧 Utilize o Git Bash para instalar: 
 
 pip install pynput
 
@@ -31,5 +32,10 @@ pip install smtplib
 pip install requests
 
 pip install socket
+
+# Antes da execução
+⚠️ Antes da execução recomendo utilizar uma Virtual Machine ou criar um ponto de restauração para garantir que nada seja comprometido. 
+
+
 
 
